@@ -133,7 +133,7 @@ const renderFilms = function (filmsArray, element) {
     newMoreInfoModalBodyBottomRowIframeWrapper.setAttribute('class', 'ratio ratio-16x9');
     let newMoreInfoModalBodyBottomRowIframe = document.createElement('iframe');
     newMoreInfoModalBodyBottomRowIframe.setAttribute('class', 'movie-info-modal__iframe d-block w-100 border-0 rounded');
-    newMoreInfoModalBodyBottomRowIframe.setAttribute('src', youtubeLink + movie.youtubeId);
+    // newMoreInfoModalBodyBottomRowIframe.setAttribute('src', youtubeLink + movie.youtubeId);
     newMoreInfoModalBodyBottomRowIframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
     let newMoreInfoModalBodyBottomRowCol7 = document.createElement('div');
     newMoreInfoModalBodyBottomRowCol7.setAttribute('class', 'col-lg-7');
@@ -144,7 +144,7 @@ const renderFilms = function (filmsArray, element) {
     let newMoreInfoModalImdbLinkWrapper = document.createElement('div');
     let newMoreInfoModalImdbLink = document.createElement('a');
     newMoreInfoModalImdbLink.setAttribute('class', 'movie-info-modal__imdb-link');
-    newMoreInfoModalImdbLink.setAttribute('href', `https://www.imdb.com/title/${movie.imdbId}`);
+    // newMoreInfoModalImdbLink.setAttribute('href', `https://www.imdb.com/title/${movie.imdbId}`);
     newMoreInfoModalImdbLink.setAttribute('target', '_blank');
 
     elList.addEventListener('click', (evt) => {
@@ -161,6 +161,8 @@ const renderFilms = function (filmsArray, element) {
         newMoreInfoModalCategories.textContent = `Categories: ${foundMovieModalInfo.categories.join(', ')}`;
         newMoreInfoModalSummary.textContent = foundMovieModalInfo.summary;
         newMoreInfoModalImdbLink.textContent = 'Show on IMDb';
+        newMoreInfoModalBodyBottomRowIframe.setAttribute('src', youtubeLink + foundMovieModalInfo.youtubeId);
+        newMoreInfoModalImdbLink.setAttribute('href', `https://www.imdb.com/title/${foundMovieModalInfo.imdbId}`);
       }
     })
     //SET ATTRIBUTE
